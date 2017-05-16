@@ -1,4 +1,4 @@
-#CSC-280: Introduction to Computer Science I
+# CSC-280: Introduction to Computer Science I
 
 ## Overview
 This repository is an archive of previous work conducted as part of American University's introductory level computer science course. Most - if not all - of the project code contained here is representative of my own original thinking with regards to the computer science problems posed by my professor. I may revisit or revise this code in the future.
@@ -14,10 +14,10 @@ Each project typically includes:
 Project files follow a naming convention adopted from early in-class examples, being named "Project" followed by a spelled-out number designation:
 
     ProjectNumber.py
-    
-Similarly, tester files are named "testProject" followed by the relevant number:
+ 
+Similarly, tester files are named "TestProject" followed by the relevant number:
 
-	testProjectNumber.py
+    TestProjectNumber.py
 	
 Some projects do not include a tester. This is due either to the difficulty in building a program that tests project functions, or the lack of a working, pre-compiled "key" copy of the project to test the student copy against.
 
