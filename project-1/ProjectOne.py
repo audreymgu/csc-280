@@ -13,9 +13,9 @@ def gcf(a,b): #6-25 lines
 # Continue to take the modulus of a by b while the result of the calculation continues to be greater than zero, with the divisor from the prior modulus operation becoming the dividend and the result of the prior modulus operation becoming the divisor. 
   while a%b>0:
       a,b = b,a%b
-# Store b.
+# Return b.
   return b
-    
+
 def reduce(t): #16-25 lines
 # Return (0,1) for tuples that have a zero in the numerator.
   if t[0] == 0:
@@ -29,7 +29,7 @@ def reduce(t): #16-25 lines
       frac = (-1*frac[0],-1*frac[1])
   else:
       pass
-# Store frac.
+# Return frac.
   return frac
 
 def add(ta, tb): #3-6 lines
@@ -45,7 +45,7 @@ def subtract(ta, tb): #2 lines
   frac = add(ta,(-1*tb[0],tb[1]))
 # Use reduce() to simplify the resulting fraction.
   frac = reduce(frac)
-# Store frac.
+# Return frac.
   return frac
 
 def multiply(ta, tb): #3-6 lines
@@ -53,7 +53,7 @@ def multiply(ta, tb): #3-6 lines
   frac = (ta[0]*tb[0], ta[1]*tb[1])
 # Reduce frac.
   frac = reduce(frac)
-# Store frac.
+# Return frac.
   return frac
 
 def square(t): #2 lines
@@ -66,7 +66,7 @@ def invert(t): #2 lines
   frac = (t[1],t[0])
 # Reduce frac.
   frac = reduce(frac)
-# Store frac.
+# Return frac.
   return frac
 
 def divide(ta, tb): #2 lines
@@ -74,11 +74,11 @@ def divide(ta, tb): #2 lines
   tb = invert(tb)
 # Multiply ta and tb (inverted). Reduction is already included.
   frac = multiply(ta,tb)
-# Store frac.
+# Return frac.
   return frac
 
 def toFloat(t): # 2lines
 # Create a new variable, float, which multiplies t with 1. in order to store t as a float.
   float = 1.*t[0]/t[1]
-# Store float.
+# Return float.
   return(float)

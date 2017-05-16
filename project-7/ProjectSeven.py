@@ -91,3 +91,4 @@ def sortHeap(H):
 def sortList(L):
 	listToHeap(L)
 	sortHeap(L)
+	

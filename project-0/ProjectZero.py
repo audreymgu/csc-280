@@ -1,7 +1,7 @@
-# Jan 2016 Dietz
-# CSC 280
-# Project Zero
-# Introduction to Unit Testing
+# Project Zero - Introduction to Unit Testing
+# NAME: George Gu
+# DUE DATE: N/A
+# OTHER COMMENTS: N/A
 
 def euclid(a,b):
     if a<b:
@@ -28,3 +28,4 @@ def fibonacci(n):
     for i in range(2,n):
         v[i]=v[i-1]+v[i-2]
     return v
+    

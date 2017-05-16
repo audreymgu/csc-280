@@ -41,7 +41,6 @@ def chooseQuestions():
 			pass
 	return picked
 
-	
 def administerExam():
 	myfile = open("TechPool.txt", 'r')
 	contents = []
@@ -76,7 +75,6 @@ def administerExam():
 		if pointCheck == True:
 			pointCount = pointCount+1
 	return pointCount	
-	
 
 def main():
 	print "Please enter your name."

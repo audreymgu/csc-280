@@ -11,7 +11,7 @@ def greetPlayers():
 	playerList.append(raw_input("Hi! Player Two, what is your name? > "))
 	return playerList
 	
-
+	
 def isInRange(v):
 	if type(v) != str:
 		return False
@@ -22,7 +22,7 @@ def isInRange(v):
 		return v
 	else:
 		return False
-		
+
 
 def getMoveFromPlayer(player, moves):
 	choice = raw_input(str(player)+", what is your next move? > ")
@@ -96,7 +96,7 @@ def main():
 			makeMove(oneChoice, oneSet, moveSet)
 			# Update win condition check for player one
 			oneWinCheck = winner(oneSet)
-
+			
 		# Real-time List Updates...
 		if not zeroWinCheck[0] and not oneWinCheck[0] and moveSet:
 			print "\n"
@@ -110,12 +110,11 @@ def main():
 			print str(moveSet).center(40)
 			print "\n"
 			
-		
 		# Tie Exception
 		if not zeroWinCheck[0] and not oneWinCheck[0] and not moveSet:
 			zeroWinCheck.append(str(zeroSet))
 			oneWinCheck.append(str(oneSet))
-		
+			
 		# Verbose Debug
 		# print str(zeroWinCheck)+str(zeroSet)+str(oneWinCheck)+str(oneSet)
 		

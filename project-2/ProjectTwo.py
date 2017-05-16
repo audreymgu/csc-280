@@ -11,7 +11,6 @@ def intToDayOfWeek(n):
 	else:
 		return "ERROR"
 
-
 def isValidDate(y, m, d):
 	if(m < 1 or m > 12 or d < 1 or d > 31 or y < 1800 or y > 2099):
 		return False
@@ -22,7 +21,6 @@ def isValidDate(y, m, d):
 	else:
 		return True
 
-				
 def isALeapYear(n):
 	# A year is a leap year if it is:
 	# Divisible by 4, but not by 100
@@ -33,7 +31,7 @@ def isALeapYear(n):
 		return True
 	else:
 		return False
-		
+
 def countLeapYear(y):
 	if y >= 1800 and y < 1900:
 		leapCount = (y - 1800)/4
