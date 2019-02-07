@@ -1,5 +1,5 @@
 # Project Seven - Heap Sort
-# NAME: George Gu
+# NAME: Audrey Gu
 # OTHER COMMENTS: Eheh, hacky implemention it is :P
 
 from copy import deepcopy
@@ -8,7 +8,7 @@ from copy import deepcopy
 def isAHeap(H):
 	# We begin with the assumption that H is a heap.
 	checkVar = True
-	
+
 	# We then test to see whether each parent-child ordering fulfills the heap property.
 	for i in range(len(H)):
 		# If a given node has children within the range of the list as a whole, and the heap has not yet been shown to be invalid, evaluate whether the three numbers are heaped. Store the boolean result.
@@ -24,7 +24,7 @@ def isAHeap(H):
 	# Return the true/false result.
 	return checkVar
 
-	
+
 def checkTree(p, lChild, rChild):
 	if p >= lChild and p >= rChild:
 		return True
@@ -62,7 +62,7 @@ def checkSwap(p, L):
 	except IndexError:
 		pass
 
-	
+
 def listToHeap(L):
 	# In reverse order starting from the highest index value:
 	for i in range(len(L), -1, -1):
@@ -91,4 +91,3 @@ def sortHeap(H):
 def sortList(L):
 	listToHeap(L)
 	sortHeap(L)
-	

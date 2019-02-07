@@ -1,5 +1,5 @@
 # Project Two - Perpetual Calendar
-# NAME: George Gu
+# NAME: Audrey Gu
 # DUE DATE: 09/23/16
 # OTHER COMMENTS: To the next leap year, and beyond!
 

@@ -1,5 +1,5 @@
 # Project 3 - The 15 Game
-# NAME: George Gu
+# NAME: Audrey Gu
 # DUE DATE:
 # OTHER COMMENTS: Wheeeeee! Conditionals!
 
@@ -10,8 +10,8 @@ def greetPlayers():
 	playerList.append(raw_input("Hi! Player One, what is your name? > "))
 	playerList.append(raw_input("Hi! Player Two, what is your name? > "))
 	return playerList
-	
-	
+
+
 def isInRange(v):
 	if type(v) != str:
 		return False
@@ -68,17 +68,17 @@ def main():
 	moveSet = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 	zeroSet = []
 	oneSet = []
-	
+
 	# Initial win condition checks
 	zeroWinCheck = winner(zeroSet)
 	oneWinCheck = winner(oneSet)
-	
+
 	# Greet players
 	playerList = greetPlayers()
-	
+
 	# While neither player has won and there are remaining available moves...
 	while not zeroWinCheck[0] and not oneWinCheck[0] and moveSet:
-		
+
 		# If player one has not yet won and there are remaining available moves...
 		if not oneWinCheck[0] and moveSet:
 			# Get move from player zero
@@ -87,7 +87,7 @@ def main():
 			makeMove(zeroChoice, zeroSet, moveSet)
 			# Update win condition check for player zero
 			zeroWinCheck = winner(zeroSet)
-			
+
 		# If player zero has not yet won and there are remaining available moves...
 		if not zeroWinCheck[0] and moveSet:
 			# Get move from player one
@@ -96,7 +96,7 @@ def main():
 			makeMove(oneChoice, oneSet, moveSet)
 			# Update win condition check for player one
 			oneWinCheck = winner(oneSet)
-			
+
 		# Real-time List Updates...
 		if not zeroWinCheck[0] and not oneWinCheck[0] and moveSet:
 			print "\n"
@@ -109,18 +109,18 @@ def main():
 			print "-- Available Moves --".center(40)
 			print str(moveSet).center(40)
 			print "\n"
-			
+
 		# Tie Exception
 		if not zeroWinCheck[0] and not oneWinCheck[0] and not moveSet:
 			zeroWinCheck.append(str(zeroSet))
 			oneWinCheck.append(str(oneSet))
-			
+
 		# Verbose Debug
 		# print str(zeroWinCheck)+str(zeroSet)+str(oneWinCheck)+str(oneSet)
-		
+
 	# Final Sign-off!
 	signoff(playerList, zeroWinCheck, oneWinCheck)
-	
-	
+
+
 if __name__ == '__main__':
 	main()

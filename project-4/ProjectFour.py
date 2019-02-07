@@ -1,5 +1,5 @@
 # Project Four - The 15 Game, Tournament Version
-# NAME: George Gu
+# NAME: Audrey Gu
 # DUE DATE: 10/25/16
 # OTHER COMMENTS: 3y3 @m 1337 haxx0r g@wd (just kidding)
 
@@ -22,8 +22,8 @@ def greetPlayers():
 	print "Hi! Player Two, what is your name?".center(100)
 	playerList.append(raw_input("> "))
 	return playerList
-	
-	
+
+
 def isInRange(v):
 	if type(v) != str:
 		return False
@@ -55,7 +55,7 @@ def melt(l):
 	l = [item for sublist in l for item in sublist]
 	return l
 
-		
+
 def bestChoice(set):
 	highestCount = [0, 0]
 	for i in range(len(set)):
@@ -73,7 +73,7 @@ def choiceEval(option, solutions):
 	for i in range(len(solutions)):
 		counter = counter + solutions[i-1].count(option)
 	return counter
-			
+
 
 def solnEval(reqSet, moveSet):
 	startingSolutions = [[1, 5, 9], [1, 6, 8], [2, 4, 9], [2, 5, 8], [2, 6, 7], [3, 4, 8], [3, 5, 7], [4, 5, 6]]
@@ -83,7 +83,7 @@ def solnEval(reqSet, moveSet):
 	win = []
 	pool = []
 	highestCount = [0, 0]
-	
+
 	# If a solution in startingSolutions contains one of the moves remaining in the moveset, append it to validSolutions. Remove duplicates.
 	# This filters out solutions that do not have the potential to be advanced in the next move.
 	for i in range(len(moveSet)):
@@ -94,7 +94,7 @@ def solnEval(reqSet, moveSet):
 		if validSolutions[i] not in temp1:
 			temp1.append(validSolutions[i])
 	validSolutions = temp1
-	
+
 	# If a solution in validSolutions contains one of the moves in the requested set (reqSet), append it to temp. Allow for multiple appends of the same solution. Replace the existing validSolutions with temp after the search is complete.
 	# This filters validSolutions further, while also using a double append to indicate immediate victory (a double append means that the requested set already owns two of the three numbers to win.)
 	for i in range(len(reqSet)):
@@ -102,7 +102,7 @@ def solnEval(reqSet, moveSet):
 			if validSolutions[j].count(reqSet[i]):
 				temp2.append(validSolutions[j])
 	validSolutions = temp2
-	
+
 	# If a solution has been appended to validSolutions more than once, append that solution to win.
 	for i in range(len(validSolutions)):
 		if validSolutions.count(validSolutions[i]) > 1 and not win:
@@ -130,8 +130,8 @@ def solnEval(reqSet, moveSet):
 				highestCount = [counter, moveSet[i]]
 		firstMove = [False, highestCount[1]]
 		return firstMove
-			
-		
+
+
 def childChoice(ownSet, oppSet, moveSet):
 	oppWinCheck = findMoveToWin(oppSet, moveSet)
 	ownWinCheck = findMoveToWin(ownSet, moveSet)
@@ -162,7 +162,7 @@ def getMoveFromPlayer(player, moves):
 		print (str(player)+", that choice is invalid. Input another move.").center(100)
 		choice = raw_input("> ")
 	return int(choice)
-	
+
 
 def makeMove(choice, playerSet, moveSet):
 	playerSet.append(moveSet.pop(moveSet.index(choice)))
@@ -198,22 +198,22 @@ def signoff(playerList, zeroSetFinal, oneSetFinal):
 
 def hvh():
 	print "---------- Begin Turn ----------".center(100)
-	
+
 	# Move lists
 	moveSet = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 	zeroSet = []
 	oneSet = []
-	
+
 	# Initial win condition checks
 	zeroWinCheck = winner(zeroSet)
 	oneWinCheck = winner(oneSet)
-	
+
 	# Greet players
 	playerList = greetPlayers()
-	
+
 	# While neither player has won and there are remaining available moves...
 	while not zeroWinCheck[0] and not oneWinCheck[0] and moveSet:
-		
+
 		# If player one has not yet won and there are remaining available moves...
 		if not oneWinCheck[0] and moveSet:
 			# Get move from player zero
@@ -222,7 +222,7 @@ def hvh():
 			makeMove(zeroChoice, zeroSet, moveSet)
 			# Update win condition check for player zero
 			zeroWinCheck = winner(zeroSet)
-			
+
 		# If player zero has not yet won and there are remaining available moves...
 		if not zeroWinCheck[0] and moveSet:
 			# Get move from player one
@@ -244,15 +244,15 @@ def hvh():
 			print "-- Available Moves --".center(100)
 			print str(moveSet).center(100)
 			print "\n"
-		
+
 		# Tie Exception
 		if not zeroWinCheck[0] and not oneWinCheck[0] and not moveSet:
 			zeroWinCheck.append(str(zeroSet))
 			oneWinCheck.append(str(oneSet))
-		
+
 		# Verbose Debug
 		# print str(zeroWinCheck)+str(zeroSet)+str(oneWinCheck)+str(oneSet)
-		
+
 	# Final Sign-off!
 	signoff(playerList, zeroWinCheck, oneWinCheck)
 
@@ -262,18 +262,18 @@ def cvh():
 	moveSet = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 	cpSet = []
 	hmSet = []
-	
+
 	# Initial win condition checks
 	cpWinCheck = winner(cpSet)
 	hmWinCheck = winner(hmSet)
-	
+
 	# Greet player
 	playerList = ["CPU-00", greetPlayer()]
-	
+
 	# While neither player has won and there are remaining available moves...
 	while not cpWinCheck[0] and not hmWinCheck[0] and moveSet:
 		print "---------- Begin Turn ----------".center(100)
-		
+
 		# If the human player has not yet won and there are remaining available moves...
 		if not hmWinCheck[0] and moveSet:
 			# Get move from the computer
@@ -284,7 +284,7 @@ def cvh():
 			cpWinCheck = winner(cpSet)
 			# Inform player of computer's choice
 			print ("CPU-OO has chosen "+str(cpChoice)+".").center(100)
-			
+
 		# If the computer has not yet won and there are remaining available moves...
 		if not cpWinCheck[0] and moveSet:
 			# Get move from human player
@@ -305,33 +305,33 @@ def cvh():
 			print "-- Available Moves --".center(100)
 			print str(moveSet).center(100)
 			print "\n"
-		
+
 		# Tie Exception
 		if not cpWinCheck[0] and not hmWinCheck[0] and not moveSet:
 			cpWinCheck.append(str(cpSet))
 			hmWinCheck.append(str(hmSet))
-		
+
 	# Final Sign-off!
 	signoff(playerList, cpWinCheck, hmWinCheck)
-	
-	
+
+
 def hvc():
 	# Move lists
 	moveSet = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 	hmSet = []
 	cpSet = []
-	
+
 	# Initial win condition checks
 	hmWinCheck = winner(hmSet)
 	cpWinCheck = winner(cpSet)
-		
+
 	# Greet player
 	playerList = [greetPlayer(), "CPU-00"]
-	
+
 	# While neither player has won and there are remaining available moves...
 	while not hmWinCheck[0] and not cpWinCheck[0] and moveSet:
 		print "---------- Begin Turn ----------".center(100)
-		
+
 		# If the computer has not yet won and there are remaining available moves...
 		if not cpWinCheck[0] and moveSet:
 			# Get move from human player
@@ -340,7 +340,7 @@ def hvc():
 			makeMove(hmChoice, hmSet, moveSet)
 			# Update win condition check for human player
 			hmWinCheck = winner(hmSet)
-		
+
 		# If the human player has not yet won and there are remaining available moves...
 		if not hmWinCheck[0] and moveSet:
 			# Get move from the computer
@@ -351,7 +351,7 @@ def hvc():
 			cpWinCheck = winner(cpSet)
 			# Inform player of computer's choice
 			print ("CPU-OO has chosen "+str(cpChoice)+".").center(100)
-			
+
 		# Real-time List Updates...
 		if not hmWinCheck[0] and not cpWinCheck[0] and moveSet:
 			print "\n"
@@ -363,12 +363,12 @@ def hvc():
 			print "-- Available Moves --".center(100)
 			print str(moveSet).center(100)
 			print "\n"
-		
+
 		# Tie Exception
 		if not hmWinCheck[0] and not cpWinCheck[0] and not moveSet:
 			hmWinCheck.append(str(hmSet))
 			cpWinCheck.append(str(cpSet))
-		
+
 	# Final Sign-off!
 	signoff(playerList, hmWinCheck, cpWinCheck)
 
@@ -378,18 +378,18 @@ def cvc():
 	moveSet = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 	cp1Set = []
 	cp2Set = []
-	
+
 	# Initial win condition checks
 	cp1WinCheck = winner(cp1Set)
 	cp2WinCheck = winner(cp2Set)
-		
+
 	# Computer Opponent List
 	playerList = ["CPU-00", "CPU-01"]
-	
+
 	# While neither computer player has won and there are remaining available moves...
 	while not cp1WinCheck[0] and not cp2WinCheck[0] and moveSet:
 		print "---------- Begin Turn ----------".center(100)
-		
+
 		if not cp2WinCheck[0] and moveSet:
 			# Get move from the computer
 			cp1Choice = computerChoice(cp1Set, cp2Set, moveSet)
@@ -399,7 +399,7 @@ def cvc():
 			cp1WinCheck = winner(cp1Set)
 			# Inform user of computer's choice
 			print (str(playerList[0])+" has chosen "+str(cp1Choice)+".").center(100)
-		
+
 		if not cp1WinCheck[0] and moveSet:
 			# Get move from the computer
 			cp2Choice = computerChoice(cp2Set, cp1Set, moveSet)
@@ -409,7 +409,7 @@ def cvc():
 			cp2WinCheck = winner(cp2Set)
 			# Inform user of computer's choice
 			print (str(playerList[1])+" has chosen "+str(cp2Choice)+".").center(100)
-			
+
 		# Real-time List Updates...
 		if not cp1WinCheck[0] and not cp2WinCheck[0] and moveSet:
 			print "\n"
@@ -421,7 +421,7 @@ def cvc():
 			print "-- Available Moves --".center(100)
 			print str(moveSet).center(100)
 			print "\n"
-		
+
 		# Tie Exception
 		if not cp1WinCheck[0] and not cp2WinCheck[0] and not moveSet:
 			cp1WinCheck.append(str(cp1Set))
@@ -429,7 +429,7 @@ def cvc():
 
 		# Verbose Debug
 		# print str(zeroWinCheck)+str(zeroSet)+str(oneWinCheck)+str(oneSet)
-		
+
 	# Final Sign-off!
 	signoff(playerList, cp1WinCheck, cp2WinCheck)
 

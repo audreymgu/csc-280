@@ -1,5 +1,5 @@
 # Project One - Fractions
-# NAME: George Gu
+# NAME: Audrey Gu
 # DUE DATE: 09/16/16
 # OTHER COMMENTS: Tuples are for squares :P
 
@@ -10,7 +10,7 @@ def gcf(a,b): #6-25 lines
 # Switch a and b if a is smaller than b.
   if a < b:
       a,b = b,a
-# Continue to take the modulus of a by b while the result of the calculation continues to be greater than zero, with the divisor from the prior modulus operation becoming the dividend and the result of the prior modulus operation becoming the divisor. 
+# Continue to take the modulus of a by b while the result of the calculation continues to be greater than zero, with the divisor from the prior modulus operation becoming the dividend and the result of the prior modulus operation becoming the divisor.
   while a%b>0:
       a,b = b,a%b
 # Return b.
@@ -33,7 +33,7 @@ def reduce(t): #16-25 lines
   return frac
 
 def add(ta, tb): #3-6 lines
-# Multiply the numerators of ta and tb by the denominators of tb and ta respectively, multiply the denominators together, and store the resulting two values in frac. 
+# Multiply the numerators of ta and tb by the denominators of tb and ta respectively, multiply the denominators together, and store the resulting two values in frac.
   frac = ((ta[0]*tb[1])+(tb[0]*ta[1]),(ta[1]*tb[1]))
 # Reduce frac.
   frac = reduce(frac)
